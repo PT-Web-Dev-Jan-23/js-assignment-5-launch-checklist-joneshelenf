@@ -17,8 +17,34 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
 }
 
 function validateInput(testInput) {
-   
-}
+       if (testInput === "" || testInput === 0) {
+        return `Empty.`
+       } else if (isNaN(testInput)) {
+        return `Not a number.`
+       } else if (Number) {
+        return `Is a number.`
+      }
+   }
+
+//update faulty items: change color (red=not ready, green=ready) based on fuel/cargo levels
+   if(Number(fuelLevel) < 10000){
+    fuelStatus.innerHTML = `Not enough fuel for journey.`;
+    launchStatus.innerHTML = `Shuttle not ready for launch.`;
+    launchStatus.style.color = `red`;
+    list.style.visibility = `visible`;
+   } else if (Number(cargoLevel) > 10000){
+    cargoStatus.innerHTML = `Cargo too heavy for takeoff.`;
+    launchStatus.innerHTML = `Shuttle not ready for launch.`;
+    launchStatus.style.color = `red`;
+    list.style.visibility = `visible`;
+   } else if (Number(cargoLevel) < 10000 && Number(fuelLevel > 10000)){
+    cargoStatus.innerHTML = `Cargo light enough for takeoff.`;
+    fuelStatus.innerHTML = `Enough fuel for journey.`;
+    launchStatus.innerHTML = `Shuttle is ready for launch.`;
+    launchStatus.style.color = `green`;
+    list.style.visibilty = `visible`;
+   }
+
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
    
@@ -27,13 +53,16 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
 async function myFetch() {
     let planetsReturned;
 
-    planetsReturned = await fetch().then( function(response) {
+    planetsReturned = await fetch("https://handlers.education.launchcode.org/static/planets.json").then( function(response) {
+        return response.json()
         });
 
     return planetsReturned;
 }
 
 function pickPlanet(planets) {
+    let randomIndex = Math.floor(Math.random() * planets.length);
+    return planets[randomIndex];
 }
 
 module.exports.addDestinationInfo = addDestinationInfo;
