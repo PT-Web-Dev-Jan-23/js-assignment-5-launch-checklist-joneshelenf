@@ -27,12 +27,6 @@ function validateInput(testInput) {
       }
    }
 
-
-
-
-
-
-
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
    //DOM element list
         let pilotStatus = document.getElementById('pilotStatus');

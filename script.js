@@ -1,10 +1,28 @@
 // Write your JavaScript code here!
 
+const { formSubmission } = require("./scriptHelper");
+
 window.addEventListener("load", function() {
     console.log(`Loaded!`);
     const form = document.querySelector("form");
     form.addEventListener("submit", function event(){
         event.preventDefault();
+        //DOM elements list
+        let pilotInput = document.getElementById.querySelector("input[name=pilotName]");
+        let copilotInput = document.getElementById.querySelector("input[name=copilotName]");
+        let fuelLevelInput = document.getElementById.querySelector("input[name=fuelLevel]");
+        let cargoLevelInput = document.getElementById.querySelector("name=[cargoLevel]");
+        
+        
+        pilot = pilotInput.value;
+        copilot = copilotInput.value;
+        fuelLevel = fuelLevelInput.value;
+        cargoLevel = cargoLevelInput.value;
+
+        let list = document.getElementById('faultyItems');
+
+    formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel);
+
     })
    
     let listedPlanets;
