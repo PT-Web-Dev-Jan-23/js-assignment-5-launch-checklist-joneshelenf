@@ -21,7 +21,9 @@ window.addEventListener("load", function() {
 
         let list = document.getElementById('faultyItems');
 
-    formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel);
+//formSubmission updates and validates list
+    function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel);
+// error here? 
 
     })
    
