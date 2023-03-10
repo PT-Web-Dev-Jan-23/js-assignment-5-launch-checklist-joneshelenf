@@ -1,6 +1,7 @@
 // Write your JavaScript code here!
 
-const { formSubmission } = require("./scriptHelper");
+// const { formSubmission } = 
+// require("./scriptHelper");
 
 window.addEventListener("load", function() {
     console.log(`Loaded!`);
@@ -19,10 +20,11 @@ window.addEventListener("load", function() {
         fuelLevel = fuelLevelInput.value;
         cargoLevel = cargoLevelInput.value;
 
-        let list = document.getElementById('faultyItems');
+        let list = [];
+        //  document.getElementById('faultyItems');
 
 //formSubmission updates and validates list
-    function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel);
+    formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel);
 // error here? 
 
     })
